@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="GM_ssm_layui:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="GM_ssm_layui.war">
+    <root id="archive" name="text.war">
       <element id="artifact" artifact-name="GM_ssm_layui:war exploded" />
     </root>
   </artifact>
