@@ -1,0 +1,71 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:util="http://www.springframework.org/schema/util"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="-->
+       <!--http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd-->
+       <!--http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">-->
+    <!--&lt;!&ndash; 缓存器，用于缓存shiro相关的数据 &ndash;&gt;-->
+    <!--<bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager" />-->
+    <!--<bean id="shiroRealm" class="com.shiro.ShiroRealm"></bean>-->
+    <!--<bean id="employeeRealm" class="com.shiro.EmployeeRealm"></bean>-->
+
+
+    <!--&lt;!&ndash; 项目自定义Authenticator &ndash;&gt;-->
+    <!--<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">-->
+        <!--<property name="authenticator" ref="pointRealmAuthenticator" />-->
+        <!--&lt;!&ndash; 我们自定义的realm &ndash;&gt;-->
+        <!--<property name="realms">-->
+            <!--<list>-->
+                <!--<ref bean="shiroRealm"/>-->
+                <!--<ref bean="employeeRealm"/>-->
+            <!--</list>-->
+        <!--</property>-->
+
+        <!--&lt;!&ndash; 缓存管理器 &ndash;&gt;-->
+        <!--<property name="cacheManager" ref="cacheManager"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 项目自定义Authenticator &ndash;&gt;-->
+    <!--<bean id="pointRealmAuthenticator"-->
+          <!--class="com.shiro.CustomizedModularRealmAuthenticator">-->
+        <!--&lt;!&ndash; realmMap &ndash;&gt;-->
+        <!--<property name="definedRealms">-->
+            <!--<map>-->
+                <!--<entry key="shiroRealm" value-ref="shiroRealm" />-->
+                <!--<entry key="employeeRealm" value-ref="employeeRealm" />-->
+            <!--</map>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">-->
+        <!--&lt;!&ndash; 权限管理器 &ndash;&gt;-->
+        <!--<property name="securityManager" ref="securityManager"/>-->
+        <!--&lt;!&ndash; 登录地址 &ndash;&gt;-->
+        <!--<property name="loginUrl" value="/WEB-INF/views/login.jsp"/>-->
+        <!--&lt;!&ndash; 错误页面 &ndash;&gt;-->
+        <!--<property name="unauthorizedUrl" value="/WEB-INF/views/login.jsp"/>-->
+        <!--&lt;!&ndash; 权限配置 &ndash;&gt;-->
+        <!--<property name="filterChainDefinitions">-->
+            <!--<value>-->
+                <!--/findTAdminAction = anon-->
+                <!--/assets/**=anon-->
+                <!--/css/**=anon-->
+                <!--/image/**=anon-->
+                <!--/js/**=anon-->
+                <!--/layui/**=anon-->
+                <!--/lib/**=anon-->
+                <!--/plugins/**=anon-->
+                <!--/qrcode/**=anon-->
+                <!--/static/**=anon-->
+                <!--/transfer/**=anon-->
+                <!--/ueditor2/**=anon-->
+                <!--/cimg.jsp=anon-->
+                <!--/index.jsp=anon-->
+            <!--</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />-->
+
+<!--</beans>-->
