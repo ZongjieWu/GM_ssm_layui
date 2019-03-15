@@ -1,6 +1,8 @@
 package com.codegen;
 
 import java.sql.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DBConn {
     private static String driver="com.mysql.jdbc.Driver";
@@ -33,15 +35,14 @@ public class DBConn {
         }
         return conn;
     }
-    public void getTableNameByCon() {
+    public static Set<String> getTableNameByCon() {
+        Set<String> set=new HashSet<String>();
         try {
             DatabaseMetaData meta = conn.getMetaData();
             ResultSet rs = meta.getTables(null, null, null,
                     new String[]{"TABLE"});
             while (rs.next()) {
-                System.out.println("表名：" + rs.getString(3));
-                System.out.println("表所属用户名：" + rs.getString(2));
-                System.out.println("------------------------------");
+                set.add(rs.getString(3));
             }
             conn.close();
         } catch (Exception e) {
@@ -54,6 +55,7 @@ public class DBConn {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        return set;
     }
     public static void main(String[] args)
     {

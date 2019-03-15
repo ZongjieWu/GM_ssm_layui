@@ -1,6 +1,10 @@
 package com.codegen.main;
 
+import com.codegen.DBConn;
 import com.codegen.service.CodeGeneratorManager;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 代码生成器启动项
@@ -30,7 +34,12 @@ public class CodeGeneratorMain {
 	 */
 	public static void main(String[] args) {
 		CodeGeneratorManager cgm = new CodeGeneratorManager();
-		
+
+//      全表生成
+//		Set<String> set= DBConn.getTableNameByCon();
+//		cgm.genCodeWithSimpleName((String[])set.toArray());
+
+		//单表生成
 		cgm.genCodeWithSimpleName("admin");
 
 
