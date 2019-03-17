@@ -11,7 +11,7 @@ public enum Result {
     /**
      * 返回成功
      * */
-    public Map<String,Object> retrunSucess(){
+    public static Map<String,Object> retrunSucess(){
         Map map=new HashMap();
         map.put("code",SUCCESS_CODE);
         map.put("msg","成功");
@@ -20,7 +20,7 @@ public enum Result {
     /**
      * 返回失败
      * */
-    public Map<String,Object> retrunFail(){
+    public static Map<String,Object> retrunFail(){
         Map map=new HashMap();
         map.put("code",FAIL_CODE);
         map.put("msg","失败");
@@ -29,7 +29,7 @@ public enum Result {
     /**
      * 返回成功消息
      * */
-    public Map<String,Object> retrunSucessMsg(String msg){
+    public static Map<String,Object> retrunSucessMsg(String msg){
         Map map=new HashMap();
         map.put("code",SUCCESS_CODE);
         map.put("msg",msg);
@@ -38,7 +38,7 @@ public enum Result {
     /**
      * 返回失败消息
      * */
-    public Map<String,Object> retrunFailMsg(String msg){
+    public static Map<String,Object> retrunFailMsg(String msg){
         Map map=new HashMap();
         map.put("code",FAIL_CODE);
         map.put("msg",msg);
@@ -47,7 +47,27 @@ public enum Result {
     /**
      * 返回成功消息和数据
      * */
-    public Map<String,Object> retrunSucessMsgData(String msg,Object data){
+    public static Map<String,Object> retrunSucessMsgData(Object data){
+        Map map=new HashMap();
+        map.put("code",SUCCESS_CODE);
+        map.put("msg","成功");
+        map.put("data",data);
+        return map;
+    }
+    /**
+     * 返回失败消息和数据
+     * */
+    public static Map<String,Object> retrunFailMsgData(Object data){
+        Map map=new HashMap();
+        map.put("code",FAIL_CODE);
+        map.put("msg","失败");
+        map.put("data",data);
+        return map;
+    }
+    /**
+     * 返回成功消息和数据
+     * */
+    public static Map<String,Object> retrunSucessMsgData(String msg,Object data){
         Map map=new HashMap();
         map.put("code",SUCCESS_CODE);
         map.put("msg",msg);
@@ -57,7 +77,7 @@ public enum Result {
     /**
      * 返回失败消息和数据
      * */
-    public Map<String,Object> retrunFailMsgData(String msg,Object data){
+    public static Map<String,Object> retrunFailMsgData(String msg,Object data){
         Map map=new HashMap();
         map.put("code",FAIL_CODE);
         map.put("msg",msg);

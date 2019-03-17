@@ -49,4 +49,10 @@
         <property name="maxUploadSize" value="1000000000" />
     </bean>
 
+    <!-- 注册验证器 -->
+    <mvc:annotation-driven validator="validator" />
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+      <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+    </bean>
+
 </beans>
