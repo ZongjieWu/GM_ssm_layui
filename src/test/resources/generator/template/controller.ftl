@@ -1,21 +1,22 @@
 package ${basePackage}.web.controller;
 import ${basePackage}.model.${modelNameUpperCamel};
 import ${basePackage}.service.service.${modelNameUpperCamel}Service;
+import ${basePackage}.enums.Result;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * Created by ${author} on ${date}.
  */
-@Controller
+@RestController
 @RequestMapping("/${baseRequestMapping}/")
 public class ${modelNameUpperCamel}Controller {
 
@@ -23,39 +24,36 @@ public class ${modelNameUpperCamel}Controller {
     ${modelNameUpperCamel}Service ${modelNameLowerCamel}Service;
 
     @RequestMapping("add")
-    @ResponseBody
-    public String add(${modelNameUpperCamel} ${modelNameLowerCamel}) {
+    public Map<String,Object> add(${modelNameUpperCamel} ${modelNameLowerCamel}) {
         ${modelNameLowerCamel}Service.save(${modelNameLowerCamel});
-        return "";
+        return Result.retrunSucess();
     }
 
     @RequestMapping("delete")
-    @ResponseBody
-    public String delete(@RequestParam Integer id) {
+    public Map<String,Object> delete(@RequestParam Long id) {
 	    ${modelNameLowerCamel}Service.deleteById(id);
-	    return "";
+	    return Result.retrunSucess();
     }
 
     @RequestMapping("update")
-    @ResponseBody
-    public String update(${modelNameUpperCamel} ${modelNameLowerCamel}) {
+    public Map<String,Object> update(${modelNameUpperCamel} ${modelNameLowerCamel}) {
 	    ${modelNameLowerCamel}Service.update(${modelNameLowerCamel});
-	    return "";
+	    return Result.retrunSucess();
     }
 
     @RequestMapping("detail")
-    @ResponseBody
-    public String detail(@RequestParam Integer id) {
+    public Map<String,Object> detail(@RequestParam Long id) {
         ${modelNameUpperCamel} ${modelNameLowerCamel} = ${modelNameLowerCamel}Service.findById(id);
-        return ${modelNameLowerCamel}.toString();
+        return Result.retrunSucessMsgData(${modelNameLowerCamel});
     }
 
     @RequestMapping("list")
-    @ResponseBody
-    public String list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
-        PageHelper.startPage(page, size);
+    public Map<String,Object> list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer limit) {
+        PageHelper.startPage(page, limit);
         List<${modelNameUpperCamel}> list = ${modelNameLowerCamel}Service.findAll();
         PageInfo pageInfo = new PageInfo(list);
-        return list.toString();
+        Map<String,Object> map=Result.retrunSucessMsgData(pageInfo.getList());
+        map.put("count",pageInfo.getTotal());
+        return map;
     }
 }

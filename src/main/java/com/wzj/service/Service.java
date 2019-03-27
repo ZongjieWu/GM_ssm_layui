@@ -27,7 +27,7 @@ public interface Service<T> {
      * 通过主鍵刪除
      * @param id
      */
-    void deleteById(Integer id);
+    void deleteById(Long id);
     
     /**
      * 批量刪除 
@@ -46,7 +46,7 @@ public interface Service<T> {
      * @param id
      * @return
      */
-    T findById(Integer id);
+    T findById(Long id);
     
     /**
      * 通过Model中某个成员变量名称（非数据表中column的名称）查找,value需符合unique约束

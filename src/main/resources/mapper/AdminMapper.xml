@@ -8,6 +8,5 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="pwd" jdbcType="VARCHAR" property="pwd" />
-    <result column="type" jdbcType="BIGINT" property="type" />
   </resultMap>
 </mapper>

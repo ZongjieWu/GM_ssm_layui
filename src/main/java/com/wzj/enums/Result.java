@@ -3,11 +3,12 @@ package com.wzj.enums;
 import java.util.HashMap;
 import java.util.Map;
 
-public enum Result {
+public class Result {
     /**
      * 成功码0失败码1
      * */
-    SUCCESS_CODE,FAIL_CODE;
+    public static Integer SUCCESS_CODE=0;
+    public static Integer FAIL_CODE=-1;
     /**
      * 返回成功
      * */

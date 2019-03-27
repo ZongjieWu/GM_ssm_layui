@@ -4,6 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+    <!--设置返回map是没查询到的字段返回null-->
+    <settings>
+        <setting name="callSettersOnNulls" value="true"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <objectWrapperFactory type="com.config.maggerConfig.MapWrapperFactory"/>
     <!-- 配置分页插件 -->
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageHelper">
