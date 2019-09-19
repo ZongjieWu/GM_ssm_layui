@@ -9,7 +9,7 @@
         <setting name="callSettersOnNulls" value="true"/>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
-    <objectWrapperFactory type="com.config.maggerConfig.MapWrapperFactory"/>
+    <objectWrapperFactory type="com.wzj.config.maggerConfig.MapWrapperFactory"/>
     <!-- 配置分页插件 -->
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageHelper">

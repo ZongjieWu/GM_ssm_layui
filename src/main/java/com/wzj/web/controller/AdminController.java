@@ -24,6 +24,15 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
+
+    @RequestMapping("login")
+    public Map<String,Object> login(String phone,String pwd) {
+        Admin admin=new Admin();
+        adminService.save(admin);
+        return Result.retrunSucess();
+    }
+
+
     @RequestMapping("add")
     public Map<String,Object> add(Admin admin) {
         System.out.println(10/0);
